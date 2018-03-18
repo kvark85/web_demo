@@ -1,0 +1,112 @@
+// ---------- Header Start ---------------------------------------------------------------------------------------------
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-width: 550px;
+  height: 45px;
+  line-height: 45px;
+  background-color: @headerColor;
+  color: @textColor;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+.circles {
+  float: left;
+  padding: 0 20px;
+  line-height: 45px;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: middle;
+  &--red {
+    background: @circleRed;
+  }
+  &--yellow {
+    background: @circleYellow;
+  }
+  &--green {
+    background: @circleGreen;
+  }
+  &--purple {
+    background: @circlePurpure;
+  }
+  &--aside {
+    width: 6px;
+    height: 6px;
+    margin: 0 14px 0 3px;
+  }
+}
+
+.header-nav {
+  float: right;
+  line-height: 45px;
+  &--a {
+    color: @textColor;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  &__bull {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    border-radius: 3px;
+    background-color: @headerBull;
+  }
+}
+
+.account-info {
+  margin-left: 10px;
+  display: inline-block;
+  background-color: @accaunt;
+  a {
+    text-decoration: none;
+    color: @white;
+  }
+}
+.account-info__avatar {
+  height: 28px;
+  margin: 0 10px;
+  border-radius: 16px;
+  vertical-align: middle;
+  border: 2px solid @white;
+}
+.account-info__button {
+  margin: 0 20px 0 15px;
+}
+// ---------- Header End -----------------------------------------------------------------------------------------------
+// ---------- Footer Start -----------------------------------------------------------------------------------------------
+.footer {
+  background-color: @footerColor;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 45px;
+  width: 100%;
+  color: @white;
+  text-align: right;
+  font-size: 0;
+  a {
+    color: @white;
+    text-decoration: none;
+  }
+}
+.footer__block {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 45px;
+  padding: 0 15px;
+  background-color: @accaunt;
+  &--help {
+    background-color: @backgroundHalp;
+  }
+  &--settings {
+    background-color: @accaunt;
+  }
+}
+// ---------- Footer End -----------------------------------------------------------------------------------------------

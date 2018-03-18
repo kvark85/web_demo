@@ -1,0 +1,223 @@
+// ---------- Header Start -----------------------------------------------------------------------------------------------
+.header {
+  border-top: 4px solid @red;
+  background-color: @headerBackground;
+  color: @white;
+  position: relative;
+}
+
+.soc-icon {
+  display:inline-block;
+  height: 23px;
+  width: 23px;
+  margin: 5px 0;
+  content: '';
+  vertical-align: middle;
+  &--facebook {
+    background: url(../img/sprite.png);
+    background-position: 0 0;
+  }
+  &--redcircle {
+    background: url(../img/sprite.png);
+    background-position: -23px 0;
+  }
+  &--twitter {
+    background: url(../img/sprite.png);
+    background-position: -46px 0;
+  }
+  &--mail {
+    background: url(../img/sprite.png);
+    background-position: -69px 0;
+  }
+  &--vk {
+    background: url(../img/sprite.png);
+    background-position: -92px 0;
+  }
+  &--facebook-dark {
+    background: url(../img/sprite.png);
+    background-position: 0 -23px;
+  }
+  &--redcircle-dark {
+    background: url(../img/sprite.png);
+    background-position: -23px -23px;
+  }
+  &--twitter-dark {
+    background: url(../img/sprite.png);
+    background-position: -46px -23px;
+  }
+  &--mail-dark {
+    background: url(../img/sprite.png);
+    background-position: -69px -23px;
+  }
+  &--vk-dark {
+    background: url(../img/sprite.png);
+    background-position: -92px -23px;
+  }
+}
+
+.top__naw {
+  position: absolute;
+  top: 0;
+  right: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  a {
+    font-size: 12px;
+    text-decoration: none;
+    color: @white;
+  }
+  &__register {
+    padding-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+    &.top__naw--active {
+      background-color: @red;
+      padding: 14px 10px;
+      border-radius: 0 0 10px 10px;
+    }
+  }
+  &__cart {
+    margin-left: 30px;
+    padding-top: 3px;
+    display: inline-block;
+    vertical-align: top;
+    img {
+      vertical-align: middle;
+    }
+    &.top__naw--active {
+      background-color: @red;
+      padding: 10px;
+      border-radius: 0 0 10px 10px;
+    }
+  }
+}
+// ---------- Header End -----------------------------------------------------------------------------------------------
+// ---------- Logo Start -----------------------------------------------------------------------------------------------
+.logo {
+  margin: 20px 0;
+  vertical-align: middle;
+}
+
+.naw {
+  list-style-type: none;
+  &__item {
+    display: inline-block;
+    &__link {
+      text-decoration: none;
+      color: @black;
+      font-weight: bold;
+      font-size: 16px;
+      margin-left: 28px;
+    }
+  }
+}
+// ---------- Logo End -----------------------------------------------------------------------------------------------
+// ---------- Path Start -----------------------------------------------------------------------------------------------
+.path-row {
+  background-color: @redPathRow;
+  box-shadow: inset 0px 10px 14px -10px @black;
+  position: relative;
+  margin-bottom: 50px;
+  &:after {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 10px;
+    background-color: @white;
+    content: '';
+    border-bottom: 1px solid @gray;
+  }
+}
+
+.path {
+  margin: 20px 0;
+  display: inline-block;
+  color: @white;
+  vertical-align: middle;
+  &__location {
+    text-transform: uppercase;
+    font-size: 34px;
+    text-shadow: 0px 1px 1px #000;
+  }
+  &__link {
+    text-decoration: none;
+    color: @white;
+    font-size: 14px;
+    text-shadow: 0px 1px 1px #000;
+    position: relative;
+  }
+}
+// ---------- Path End -----------------------------------------------------------------------------------------------
+// ---------- Filter Start ---------------------------------------------------------------------------------------------
+.wrap-filter {
+  width: @mainWidth;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid @gray;
+  background-color: @white;
+  font-size: 14px;
+}
+
+.filter {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  &__item {
+    display: inline-block;
+    &:before {
+      display: inline-block;
+      padding: 0 10px;
+      content: url(../img/marker.png);
+    }
+
+    &:first-child:before {
+      display: none;
+    }
+
+    &
+    &__link {
+      vertical-align: middle;
+      color: @black;
+      text-decoration: none;
+      position: relative;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.sort-select {
+  border: 1px solid @gray;
+  width: 110px;
+  padding: 4px 20px 4px 2px;
+  font-size: 12px;
+
+  background-image: url(../img/red-arrow.png);
+  background-position: 90px center;
+  background-repeat: no-repeat;
+  line-height: 1em;
+
+  -webkit-appearance: none;
+  /* for FF */
+  -moz-appearance: none;
+  text-overflow: '';
+  /* for IE */
+  -ms-appearance: none;
+  appearance: none!important;
+}
+
+.display-mode {
+  margin-left: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 19px;
+  background-image: url(../img/sprite.png);
+  background-position: -115px 0;
+  &--row {
+    margin-left: 10px;
+    background-position: -145px 0;
+  }
+}
+// ---------- Filter End -----------------------------------------------------------------------------------------------

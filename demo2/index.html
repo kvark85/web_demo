@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>Web_demo2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="circles">
+      <span class="circle circle--red"></span>
+      <span class="circle circle--yellow"></span>
+      <span class="circle circle--green"></span>
+    </div>
+
+    <div class="header-nav">
+      <a href="#" class="header-nav--a">Help Center</a>
+
+      <span class="header-nav__bull"></span>
+
+      <a href="#"  class="header-nav--a">Our Support</a>
+
+      <div class="account-info">
+        <img class="account-info__avatar" src="img/avatar.jpg" alt="">
+
+        <a href="#">John Doe</a>
+
+        <a class="account-info__button" href="#"><i class="fa fa-chevron-circle-down fa-lg"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <i class="fa fa-book fa-lg"></i>
+
+      <span class="gm-vertical-align-middle">MyBookApp</span>
+    </div>
+  </header>
+
+  <div class="b-main-wrap">
+    <aside class="aside">
+      <ul class="aside-menu">
+        <li class="aside-menu__item aside-menu__item--add-block">
+          <a class="asside__menu__item__add-button" href="#">+&nbsp;&nbsp;ADD A BOOK</a>
+        </li>
+        <li class="aside-menu__item">
+          <ul class="sub-menu">
+            <li class="sub-menu__item">
+              <i class="fa fa-book"></i>
+              <a class="sub-menu__item__link" href="#">Now Reading</a>
+            </li>
+            <li class="sub-menu__item sub-menu__item--active">
+              <i class="fa fa-globe"></i>
+              <a class="sub-menu__item__link" href="#">Browse</a>
+            </li>
+            <li class="sub-menu__item">
+              <i class="fa fa-shopping-cart"></i>
+              <a class="sub-menu__item__link" href="#">Buy Books</a>
+            </li>
+            <li class="sub-menu__item">
+              <i class="fa fa-star"></i>
+              <a class="sub-menu__item__link" href="#">Favorite Books</a>
+            </li>
+            <li class="sub-menu__item">
+              <i class="fa fa-list-ul"></i>
+              <a class="sub-menu__item__link" href="#">Whishllst</a>
+            </li>
+            <li class="sub-menu__item">
+              <i class="fa fa-clock-o"></i>
+              <a class="sub-menu__item__link" href="#">History</a>
+            </li>
+          </ul>
+        </li>
+        <li class="aside-menu__item">
+          <ul class="sub-menu">
+            <li class="sub-menu__item">
+              <span class="circle circle--aside circle--red"></span>
+              <a class="sub-menu__item__link gm-vertical-align-middle" href="#">Must read Titles</a>
+            </li>
+            <li class="sub-menu__item">
+              <span class="circle circle--aside circle--yellow gm-vertical-align-middle"></span>
+              <a class="sub-menu__item__link gm-vertical-align-middle" href="#">Best Of List </a>
+            </li>
+            <li class="sub-menu__item">
+              <span class="circle circle--aside circle--green"></span>
+              <a class="sub-menu__item__link gm-vertical-align-middle" href="#">Classic Noveks</a>
+            </li>
+            <li class="sub-menu__item">
+              <span class="circle circle--aside circle--purple"></span>
+              <a class="sub-menu__item__link gm-vertical-align-middle" href="#">Non Fiction</a>
+            </li>
+          </ul>
+        </li>
+        <li class="aside-menu__item">
+          <ul class="sub-menu">
+            <li class="sub-menu__item">
+              <i class="fa fa-clock-o sub-menu__item__time-icon"></i>
+              <div class="sub-menu__item__info">
+                You added <b>Fight Club</b> by <b>Chuck Palahnuk</b> to your <b>NustRead Titles</b>
+                <div class="sub-menu__item__info--time">
+                  24 minutes ago
+                </div>
+              </div>
+            </li>
+            <li class="sub-menu__item">
+              <i class="fa fa-clock-o sub-menu__item__time-icon"></i>
+              <div class="sub-menu__item__info">
+                You added <b>Fight Club</b> by <b>Chuck Palahnuk</b> to your <b>NustRead Titles</b>
+                <div class="sub-menu__item__info--time">
+                  24 minutes ago
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="b-main">
+      <div class="title">Browser Available Book</div>
+      <div class="b-filter">
+        <div class="b-search">
+          <div class="b-search__wrap">
+            <input class="b-search__wrap__input" type="text" placeholder="Enter Keywords">
+            <i class="fa fa-search b-search__wrap__icon"></i>
+          </div>
+        </div>
+
+        <ul class="b-menu">
+          <li><a class="b-menu__top-nav b-menu__top-nav--active" href="#">All Books</a></li>
+          <li><a class="b-menu__top-nav" href="#">Most Recent</a></li>
+          <li><a class="b-menu__top-nav" href="#">Most Popular</a></li>
+          <li><a class="b-menu__top-nav" href="#">Free Books</a></li>
+        </ul>
+      </div>
+      <div class="b-content-wrap">
+        <div id="content" class="b-content default-skin">
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book1.jpg" alt="">
+
+              <div class="book__name">Jewels of Nizam</div>
+              <div class="book__by">by Geeta Devi</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book2.jpg" alt="">
+
+              <div class="book__name">Cakes & Baces</div>
+              <div class="book__by">by Sanjeev Kapoor</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book3.jpg" alt="">
+
+              <div class="book__name">Jamie's Kitchen</div>
+              <div class="book__by">by Jamie Oliver</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book4.jpg" alt="">
+
+              <div class="book__name">Inexpensive Family Meals</div>
+              <div class="book__by">by Simon Holst</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book5.jpg" alt="">
+
+              <div class="book__name">Paleo Show Cooking</div>
+              <div class="book__by">by Crissy Gower</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book6.jpg" alt="">
+
+              <div class="book__name">Cook Like an Italian</div>
+              <div class="book__by">by Tobie Puttock</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book7.jpg" alt="">
+
+              <div class="book__name">Suneeta Vaswani</div>
+              <div class="book__by">by Geeta Devi</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book8.jpg" alt="">
+
+              <div class="book__name">JamieDoes</div>
+              <div class="book__by">by Jamie Oliver</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book9.jpg" alt="">
+
+              <div class="book__name">Jamie's Italy</div>
+              <div class="book__by">by Jamie Oliver</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book10.jpg" alt="">
+
+              <div class="book__name">Vegetables Cookbook</div>
+              <div class="book__by">by Matthew biggs</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book1.jpg" alt="">
+
+              <div class="book__name">Jewels of Nizam</div>
+              <div class="book__by">by Geeta Devi</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book2.jpg" alt="">
+
+              <div class="book__name">Cakes & Baces</div>
+              <div class="book__by">by Sanjeev Kapoor</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book3.jpg" alt="">
+
+              <div class="book__name">Jamie's Kitchen</div>
+              <div class="book__by">by Jamie Oliver</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book4.jpg" alt="">
+
+              <div class="book__name">Inexpensive Family Meals</div>
+              <div class="book__by">by Simon Holst</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+              </div>
+            </div>
+          </div>
+          <div class="book-wrap">
+            <div class="book">
+              <img class="book__img" src="img/book5.jpg" alt="">
+
+              <div class="book__name">Paleo Show Cooking</div>
+              <div class="book__by">by Crissy Gower</div>
+              <div class="book__raiting">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <span class="footer__block footer__block--help">
+      <a href="">
+        <i class="fa fa-book fa-lg"></i>
+       </a>
+    </span>
+    <span class="footer__block footer__block--settings">
+      <a href="">
+        <i class="fa fa-cog fa-lg"></i>
+      </a>
+    </span>
+  </footer>
+
+  <script>
+    $(function(){
+      $('#content').mCustomScrollbar({
+        theme:"dark"
+      });
+    });
+  </script>
+</body>
+</html>

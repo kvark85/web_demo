@@ -1,0 +1,124 @@
+// ---------- Footer Start -----------------------------------------------------------------------------------------------
+.background-footer {
+  border-top: 4px solid @black;
+  border-bottom: 1px solid @black;
+  background: transparent url("../img/darkBackground.png");
+}
+
+.footer {
+  margin: 30px -5px 30px -5px;
+  color: @white;
+}
+
+.wrap__block {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  font-size: 14px;
+  padding: 0 5px;
+  line-height: 1.4em;
+}
+
+.archives-block {
+  padding-right: 20px;
+}
+
+.archives {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   &__archive {
+     padding: 10px 0;
+     border-top: 1px dotted @white;
+   }
+   &__archive:first-child {
+     padding: 10px 0;
+     border-top: none;
+   }
+ }
+
+.posts-block {
+  padding-left: 20px;
+}
+
+.posts {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  &__post {
+    padding-bottom: 5px;
+    &__img {
+      width: 100px;
+      height: 80px;
+      border: 5px solid @postBorder;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+    &__detail {
+      display: inline-block;
+      &__name {
+        margin: 10px 0 5px 0 ;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      &__comment {
+        text-transform: uppercase;
+        font-size: 12px;
+        &__img {
+          display: inline-block;
+          vertical-align: middle;
+          width: 13px;
+          height: 11px;
+          background-image: url(../img/sprite.png);
+          background-repeat: no-repeat;
+          background-position: -116px -23px;
+        }
+      }
+    }
+  }
+}
+
+.search {
+  width: 100%;
+  padding: 11px;
+  font-style: oblique;
+  font-size: 12px;
+  background-color: fade(@black, 40%);
+  border: 1px solid @darkGray;
+}
+
+.tag-linc {
+  display: inline-block;
+  background-color: @tagLincColor;
+  padding: 3px 10px;
+  margin: 0 0 5px 0;
+  color: @white;
+  text-decoration: none;
+}
+
+// ---------- Footer End -----------------------------------------------------------------------------------------------
+// ---------- Rights Start-----------------------------------------------------------------------------------------------
+.rights {
+  color: @darkGray;
+  background-color: @rightsColor;
+  font-size: 10px;
+  text-shadow: 0px 1px 1px #000;
+}
+
+.small-menu {
+  margin: 0;
+  padding: 8px 0;
+  &__item {
+    display: inline-block;
+    &__link {
+      text-decoration: none;
+      color: @darkGray;
+      font-size: 10px;
+      text-shadow: 0px 1px 1px #000;
+      margin-right: 8px;
+      position: relative;
+    }
+  }
+}
+// ---------- Rights End -----------------------------------------------------------------------------------------------

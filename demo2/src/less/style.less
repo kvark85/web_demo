@@ -1,0 +1,95 @@
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear:both;
+}
+html, body {
+  height: 100%;
+  min-width: 1025px;
+  min-height: 815px;
+}
+// ---------- Main content Start -----------------------------------------------------------------------------------------------
+.b-main-wrap {
+  box-sizing: border-box;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  height: 100%;
+}
+
+.b-main {
+  height: 100%;
+  margin-left: 200px;
+}
+
+.b-content-wrap {
+  box-sizing: border-box;
+  padding-top: 120px;
+  margin-top: -120px;
+  height: 100%;
+  font-size: 0;
+}
+
+.b-content {
+  height: 100%;
+  width: 100%;
+  padding: 15px 0 15px 15px;
+  box-sizing: border-box;
+}
+
+// ---------- Main content End -----------------------------------------------------------------------------------------------
+// ---------- Books Start -----------------------------------------------------------------------------------------------
+.book-wrap {
+  width: 33.3%;
+  display: inline-block;
+}
+
+@media all and (min-width: 1150px){.book-wrap {width: 25%;}}
+@media all and (min-width: 1400px){.book-wrap {width: 20%;}}
+@media all and (min-width: 1650px){.book-wrap {width: 16.5%;}}
+@media all and (min-width: 1900px){.book-wrap {width: 14.1%;}}
+@media all and (min-width: 2150px){.book-wrap {width: 12.5%;}}
+@media all and (min-width: 2400px){.book-wrap {width: 11.1%;}}
+@media all and (min-width: 2650px){.book-wrap {width: 10%;}}
+
+.book {
+  margin: 15px auto;
+  font-size: 14px;
+  color: @textColor;
+  box-sizing: border-box;
+  width:200px;
+}
+
+.book__img {
+  margin-bottom: 10px;
+}
+
+.book__by {
+  margin: 6px 0 10px 0;
+  font-size: 12px;
+}
+
+.book__raiting {
+  color: @raitingStar;
+}
+// ---------- Books End -----------------------------------------------------------------------------------------------
+// ---------- Custom Scroll Start -----------------------------------------------------------------------------------------------
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width:8px;
+}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: @colorScroll;
+}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: darken(@colorScroll, 20%);
+}
+.mCS-dark.mCSB_scrollTools .mCSB_draggerRail {
+   background-color: inherit;
+    transition: background-color 0.5s;
+ }
+.mCS-dark.mCSB_scrollTools:hover .mCSB_draggerRail {
+  background-color: rgba(0,0,0,.15);
+}
+// ---------- Custom Scroll End -----------------------------------------------------------------------------------------------

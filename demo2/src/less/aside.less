@@ -1,0 +1,92 @@
+// ---------- Asside Start -----------------------------------------------------------------------------------------------
+.aside {
+  float: left;
+  width: 200px;
+  height: 100%;
+  background-color: @assideBlockBackground;
+}
+
+.aside-menu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  height: 100%;
+  overflow: hidden;
+  i {
+    font-size: 14px;
+  }
+  &__item {
+    margin-bottom: 4px;
+    background-color: @assideBlockBackground;
+    position: relative;
+    &:after {
+      border-top: 1px solid  @assideBlockBorderBottom;
+      position: absolute;
+      height: 2px;
+      top: 100%;
+      left: 0;
+      background-color: @asideAlmostBlack;
+      content: "";
+      width: 100%;
+      border-bottom: 1px solid @assideBlockBorderTop;
+    }
+    &:last-child:after {
+      display: none;
+    }
+    &:first-child {
+      border-top: inherit;
+    }
+    &--add-block {
+      height: 115px;
+      line-height: 115px;
+      text-align: center;
+    }
+  }
+}
+
+.asside__menu__item__add-button {
+  background-color: @addBookButton;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  color: @white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 15px 20px;
+}
+
+.sub-menu {
+  margin: 0;
+  padding: 0 0 15px 0;
+  list-style-type: none;
+  color: @textColor;
+  font-size: 12px;
+  &__item {
+    padding: 12px 15px 12px 20px;
+    &__time-icon {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 12px;
+    }
+    &__info {
+      display: inline-block;
+      width: 138px;
+      &--time {
+        margin-top: 12px;
+      }
+    }
+    &__link {
+      color: @textColor;
+      text-decoration: none;
+    }
+    i {
+      margin-right: 12px;
+    }
+    &--active {
+      background-color: @accaunt;
+      color: @white;
+    }
+  }
+}
+
+// ---------- Asside End -----------------------------------------------------------------------------------------------

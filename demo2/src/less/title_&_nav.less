@@ -1,0 +1,69 @@
+// ---------- Title and Nav Start -----------------------------------------------------------------------------------------------
+.title {
+  box-sizing: border-box;
+  height: 70px;
+  line-height: 70px;
+  background-color: @title;
+  border-bottom: 1px solid @titleBorder;
+  padding: 0px 20px;
+  color: @headerColor;
+  font-size: 20px;
+}
+
+.b-filter {
+  box-sizing: border-box;
+  height: 50px;
+  line-height: 50px;
+  background-color: @title;
+  border-bottom: 1px solid @titleBorder;
+  padding-left: 20px;
+}
+
+.b-menu {
+  list-style-type: none;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+
+  &__top-nav {
+    color: @textColor;
+    text-decoration: none;
+    padding: 6px 12px;
+    margin-right: 4px;
+    border-radius: 50px;
+    font-size: 12px;
+    &--active {
+      background-color: @activeIitemMenu;
+      color: @white;
+    }
+  }
+  li {
+    display: inline-block;
+  }
+}
+
+.b-search {
+  text-align: right;
+  float: right;
+  height: 50px;
+  margin-right: 20px;
+  &__wrap {
+    border: 1px solid darken(@titleBorder, 10%);
+    box-sizing: border-box;
+    line-height: normal;
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    &__icon {
+      color: #78829d;
+    }
+    &__input {
+      width: 350px;
+      border: 0px solid @white;
+      background-color: @title;
+      font-size: 14px;
+      color: @textColor;
+    }
+  }
+}
+// ---------- Title and Nav End -----------------------------------------------------------------------------------------------
