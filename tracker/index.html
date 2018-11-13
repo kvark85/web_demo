@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+  >
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <span class="navbar-brand mb-0 h1">Tracker</span>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4 col-10 offset-1">
+        <table class="table custom-table">
+          <tbody>
+          <tr><td scope="row">accuracy</td><td>{{ point.coords.accuracy }}</td></tr>
+          <tr><td scope="row">altitude</td><td>{{ point.coords.altitude }}</td></tr>
+          <tr><td scope="row">altitudeAccuracy</td><td>{{ point.coords.altitudeAccuracy }}</td></tr>
+          <tr><td scope="row">heading</td><td>{{ point.coords.heading }}</td></tr>
+          <tr><td scope="row">latitude</td><td>{{ point.coords.latitude }}</td></tr>
+          <tr><td scope="row">longitude</td><td>{{ point.coords.longitude }}</td></tr>
+          <tr><td scope="row">speed</td><td>{{ point.coords.speed }}</td></tr>
+          <tr><td scope="row">timestamp</td><td>{{ point.timestamp }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row button-row">
+      <div class="col-md-4 offset-md-3 col-6 offset-1">
+        <button v-on:click="toggleRecordStatus" type="button" class="btn btn-primary">{{ buttonText }}</button>
+      </div>
+      <div v-if="isRecording" class="col-md-2 col-4 text-right">
+        <i class="material-icons play-icon">play_circle_filled</i>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-10 offset-1 jumbotron">
+        <ul class="list-group">
+          <li
+              v-for="(track, index) in tracks"
+              class="list-group-item d-flex justify-content-between align-items-center"
+              v-bind:class="{ 'recorded-track': isRecording && (tracks.length === tracks.length - index) }"
+          >
+            {{ tracks.length - index }})
+            {{ dateFormatter(track.startTime) }}
+            -
+            {{ dateFormatter(track.stopTime) }}
+            <span class="badge badge-primary badge-pill button">{{ track.dots.length }}</span>
+            <span
+                v-if="!(isRecording && (tracks.length === tracks.length - index))"
+                v-on:click="saveTrack(index)"
+                class="badge badge-primary badge-pill button"
+            >
+              <i class="material-icons">save</i>
+            </span>
+            <span
+                v-if="!(isRecording && (tracks.length === tracks.length - index))"
+                v-on:click="deleteTrack(index)"
+                class="badge badge-primary badge-pill button"
+            >
+              <i class="material-icons">delete_forever</i>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="js/functions.js"></script>
+<script src="js/index.js"></script>
+</html>

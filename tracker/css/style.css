@@ -1,0 +1,32 @@
+.button-row {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.table.custom-table td {
+    padding: .25rem;
+}
+@keyframes playicon {
+    0%   {color: #ff3c3d;}
+    50%  {color: #a4aab0;}
+    100% {color: #ff3c3d;}
+}
+.play-icon {
+    font-size: 32px;
+    animation-name: playicon;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes activitem {
+    0%   {background-color: rgba(255, 67, 68, 0.23)}
+    50%  {background-color: #ffffff}
+    100% {background-color: rgba(255, 67, 68, 0.23)}
+}
+.recorded-track {
+    animation-name: activitem;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.button {
+    margin-left: 5px;
+    cursor: pointer;
+}
