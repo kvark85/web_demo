@@ -55,6 +55,7 @@ const v = new Vue({
           const tracks = load();
           tracks[0].dots.push(positionToObject(position));
           save(tracks);
+          this.tracks = tracks;
         }
       })
     }

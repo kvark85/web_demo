@@ -60,8 +60,7 @@
             {{ dateFormatter(track.startTime) }}
             -
             {{ dateFormatter(track.stopTime) }}
-            |
-            {{ track.dots.length }}
+            <span class="badge badge-primary badge-pill button">{{ track.dots.length }}</span>
             <span
                 v-if="!(isRecording && (tracks.length === tracks.length - index))"
                 v-on:click="saveTrack(index)"
