@@ -48,16 +48,20 @@ const v = new Vue({
     this.tracks = normalizer(load());
 
     if(navigator.geolocation){
-      navigator.geolocation.watchPosition((position) => {
-        this.point = position;
+      navigator.geolocation.watchPosition(
+        (position) => {
+          this.point = position;
 
-        if(this.isRecording) {
-          const tracks = load();
-          tracks[0].dots.push(positionToObject(position));
-          save(tracks);
-          this.tracks = tracks;
-        }
-      })
+          if(this.isRecording) {
+            const tracks = load();
+            tracks[0].dots.push(positionToObject(position));
+            save(tracks);
+            this.tracks = tracks;
+          }
+        },
+        () => {},
+        { maximumAge:0, enableHighAccuracy: true },
+      )
     }
   }
 });
