@@ -8,6 +8,7 @@ const v = new Vue({
       coords: {},
     },
     tracks: [],
+    deltaTime: 0, // speed test
   },
   methods: {
     toggleRecordStatus: function () {
@@ -50,14 +51,16 @@ const v = new Vue({
     if(navigator.geolocation){
       navigator.geolocation.watchPosition(
         (position) => {
+          const start = +new Date(); // speed test
           this.point = position;
-
           if(this.isRecording) {
             const tracks = load();
             tracks[0].dots.push(positionToObject(position));
             save(tracks);
             this.tracks = tracks;
           }
+          const end =  +new Date(); // speed test
+          this.deltaTime = end - start; // speed test
         },
         () => {},
         { maximumAge:0, enableHighAccuracy: true },
