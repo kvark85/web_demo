@@ -4,6 +4,7 @@ const v = new Vue({
     isRecording: false,
     buttonText: 'Start',
     currentStartTime: undefined,
+    trackIndexForDeleting: undefined,
     point: {
       coords: {},
     },
@@ -38,11 +39,19 @@ const v = new Vue({
     },
     dateFormatter,
     saveTrack,
-    deleteTrack: function(index) {
+    openDeleteDialog: function(index) {
+      this.trackIndexForDeleting = index;
+
+    },
+    closeDeleteDialog: function() {
+      this.trackIndexForDeleting = undefined;
+    },
+    deleteTrack: function() {
       const tracks = load();
-      tracks.splice(index, 1);
+      tracks.splice(this.trackIndexForDeleting, 1);
       save(tracks);
       this.tracks = tracks;
+      this.closeDeleteDialog();
     }
   },
   mounted: function() {
