@@ -1,6 +1,5 @@
 .button-row {
-	margin-top: 15px;
-	margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 .table.custom-table td {
     padding: .25rem;
@@ -26,7 +25,16 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
-.button {
-    margin-left: 5px;
-    cursor: pointer;
+.track-item {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+.track-item > * {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.item-text {
+    flex: 1 1 auto;
 }

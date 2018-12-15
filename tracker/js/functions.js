@@ -75,10 +75,10 @@ const save = (tracks) => {
 };
 
 const positionToObject = (position) => {
-  const { accuracy, altitude, altitudeAccuracy, heading, latitude, longitude, speed } = position.coords;
+  const { accuracy, altitude, latitude, longitude, speed } = position.coords;
 
   return {
-    coords: { accuracy, altitude, altitudeAccuracy, heading, latitude, longitude, speed },
+    coords: { accuracy, altitude, latitude, longitude, speed },
     timestamp: position.timestamp,
   }
 };

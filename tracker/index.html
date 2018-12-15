@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tracker</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-  >
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+  <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 </head>
 <body>
 
@@ -21,15 +20,13 @@
     <span class="navbar-brand mb-0 h1">Tracker</span>
   </nav>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 offset-md-4 col-10 offset-1">
+  <b-container>
+    <b-row align-h="center">
+      <b-col cols="12" sm="10" 	md="8" 	lg="6" 	xl="5">
         <table class="table custom-table">
           <tbody>
           <tr><td scope="row">accuracy</td><td>{{ point.coords.accuracy }}</td></tr>
           <tr><td scope="row">altitude</td><td>{{ point.coords.altitude }}</td></tr>
-          <tr><td scope="row">altitudeAccuracy</td><td>{{ point.coords.altitudeAccuracy }}</td></tr>
-          <tr><td scope="row">heading</td><td>{{ point.coords.heading }}</td></tr>
           <tr><td scope="row">latitude</td><td>{{ point.coords.latitude }}</td></tr>
           <tr><td scope="row">longitude</td><td>{{ point.coords.longitude }}</td></tr>
           <tr><td scope="row">speed</td><td>{{ point.coords.speed }} m/s</td></tr>
@@ -38,78 +35,66 @@
           <tr><td scope="row">deltaTime</td><td>{{ deltaTime }}</td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
 
-    <div class="row button-row">
-      <div class="col-md-4 offset-md-3 col-6 offset-1">
-        <button v-on:click="toggleRecordStatus" type="button" class="btn btn-primary">{{ buttonText }}</button>
-      </div>
-      <div v-if="isRecording" class="col-md-2 col-4 text-right">
-        <i class="material-icons play-icon">play_circle_filled</i>
-      </div>
-    </div>
+        <b-row class="button-row">
+          <b-col cols="6">
+            <b-button v-on:click="toggleRecordStatus" variant="primary">{{ buttonText }}</b-button>
+          </b-col>
+          <b-col cols="6" class="text-right">
+            <i class="material-icons play-icon" v-if="isRecording">play_circle_filled</i>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
 
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-10 offset-1 jumbotron">
-        <ul class="list-group">
-          <li
-              v-for="(track, index) in tracks"
-              class="list-group-item d-flex justify-content-between align-items-center"
-              v-bind:class="{ 'recorded-track': isRecording && (tracks.length === tracks.length - index) }"
-          >
-            {{ tracks.length - index }})
-            {{ dateFormatter(track.startTime) }}
-            -
-            {{ dateFormatter(track.stopTime) }}
-            <span class="badge badge-primary badge-pill button">{{ track.dots.length }}</span>
-            <span
-                v-if="!(isRecording && (tracks.length === tracks.length - index))"
-                v-on:click="saveTrack(index)"
-                class="badge badge-primary badge-pill button"
+    <b-row align-h="center">
+      <b-col cols="12" sm="11" 	md="10" 	lg="9" 	xl="8">
+        <div class="jumbotron">
+          <b-list-group>
+            <b-list-group-item
+                v-for="(track, index) in tracks"
+                v-bind:class="{ 'recorded-track': isRecording && (tracks.length === tracks.length - index) }"
+                class="track-item"
             >
-              <i class="material-icons">save</i>
-            </span>
-            <span
-                v-if="!(isRecording && (tracks.length === tracks.length - index))"
-                v-on:click="openDeleteDialog(index)"
-                class="badge badge-primary badge-pill button"
-            >
-              <i class="material-icons">delete_forever</i>
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          class="modal fade"
-          style="background-color: #00000080;"
-          v-bind:class="{ 'show': trackIndexForDeleting !== undefined }"
-          v-bind:style="{ display: trackIndexForDeleting === undefined ? 'none' : 'block' }"
-          v-on:click="closeDeleteDialog"
+              <span class="item-text">
+                {{ tracks.length - index }})
+                {{ dateFormatter(track.startTime) }} - {{ dateFormatter(track.stopTime) }}
+              </span>
+
+              <b-badge pill variant="primary">{{ track.dots.length }}</b-badge>
+
+              <b-button
+                  v-if="!(isRecording && (tracks.length === tracks.length - index))"
+                  v-on:click="saveTrack(index)"
+                  size="sm"
+                  variant="primary"
+              >
+                <i class="material-icons">save</i>
+              </b-button>
+
+              <b-button
+                  v-if="!(isRecording && (tracks.length === tracks.length - index))"
+                  v-on:click="openDeleteDialog(index)"
+                  size="sm"
+                  variant="primary"
+              >
+                <i class="material-icons">delete_forever</i>
+              </b-button>
+            </b-list-group-item>
+          </b-list-group>
+        </div>
+      </b-col>
+    </b-row>
+  </b-container>
+
+  <b-modal
+      ref="deleteModal"
+      title="Confirm track deleting"
+      ok-title="Delete"
+      @ok="deleteTrack"
   >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Confirm track deleting</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" v-on:click="closeDeleteDialog">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body"><p>Do you really want to delete the track?</p></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="closeDeleteDialog">
-            Cancel
-          </button>
-          <button type="button" class="btn btn-primary" v-on:click="deleteTrack">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <p>Do you really want to delete the track?</p>
+  </b-modal>
 </div>
 </body>
 <script src="js/functions.js"></script>

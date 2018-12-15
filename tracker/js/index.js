@@ -41,17 +41,15 @@ const v = new Vue({
     saveTrack,
     openDeleteDialog: function(index) {
       this.trackIndexForDeleting = index;
+      this.$refs.deleteModal.show()
 
-    },
-    closeDeleteDialog: function() {
-      this.trackIndexForDeleting = undefined;
     },
     deleteTrack: function() {
       const tracks = load();
       tracks.splice(this.trackIndexForDeleting, 1);
       save(tracks);
       this.tracks = tracks;
-      this.closeDeleteDialog();
+      this.$refs.deleteModal.hide()
     }
   },
   mounted: function() {
