@@ -83,6 +83,18 @@ const positionToObject = (position) => {
   }
 };
 
+const findMinAltitude = (track) => {
+  let minAltitude = Infinity;
+
+  track.dots.forEach((dot) => {
+    if (dot.coords.altitude > 0 && dot.coords.altitude < minAltitude) {
+      minAltitude = dot.coords.altitude;
+    };
+  });
+
+  return minAltitude;
+};
+
 const normalizer = (tracks=[]) => {
   const res = tracks.reduce((memo, track) => {
     const stopTime = track.stopTime || (track.dots[0] && track.dots[0].timestamp) || track.startTime;
@@ -93,6 +105,40 @@ const normalizer = (tracks=[]) => {
 
     return [ ...memo, { ...track, stopTime }];
   }, []);
+
+  res.forEach((track) => {
+    const minAltitude = findMinAltitude(track);
+
+    for(let i = 0; i < track.dots.length; i++) {
+      let curDot = track.dots[i];
+
+      if (!curDot.coords.altitude) {
+        const startUndefinedIndex = i;
+        let endUndefinedIndex = undefined;
+
+        for(let j = startUndefinedIndex; j < track.dots.length; j++) {
+          if (track.dots[j].coords.altitude) {
+            endUndefinedIndex = j;
+            break;
+          }
+        }
+
+        if (endUndefinedIndex) {
+          const startErrorIndex =  (track.dots[startUndefinedIndex - 1] || { coords: { altitude: minAltitude } }).coords.altitude;
+          const endErrorIndex =  track.dots[endUndefinedIndex ].coords.altitude;
+          const deltaAltitude = (endErrorIndex - startErrorIndex)/(endUndefinedIndex - startUndefinedIndex + 1);
+
+          for(let j = startUndefinedIndex, count = 1; j < endUndefinedIndex; j++, count++) {
+            track.dots[j].coords.altitude = startErrorIndex + (deltaAltitude * count);
+          }
+          i = endUndefinedIndex;
+        } else if (startUndefinedIndex > 0) (
+          track.dots[startUndefinedIndex].coords.altitude = track.dots[startUndefinedIndex - 1].coords.altitude
+        )
+      }
+    }
+  });
+
   save(res);
 
   return res;
