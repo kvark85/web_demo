@@ -145,8 +145,7 @@ const normalizer = (tracks=[]) => {
 };
 
 saveTrack = (index) => {
-  console.log(index);
-  const dotString = load()[index].dots.reduce((memo, dot) => {
+  const dotString = normalizer(load())[index].dots.reduce((memo, dot) => {
     const { altitude, latitude, longitude } = dot.coords;
     return memo + `${longitude},${latitude},${altitude || 0} `;
   }, '');
