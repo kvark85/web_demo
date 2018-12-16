@@ -1,3 +1,5 @@
+const maxAccuracy = 20;
+
 const v = new Vue({
   el: '#app',
   data: {
@@ -31,6 +33,7 @@ const v = new Vue({
       }
     },
     dateFormatter,
+    speedFormatter: (speed) => Math.round(speed || 0),
     getButtonText: (isRecording) => isRecording ? 'Stop': 'Start',
     saveTrack,
     openDeleteDialog: function(index) {
@@ -54,7 +57,7 @@ const v = new Vue({
         (position) => {
           const start = +new Date(); // speed test
           this.point = position;
-          if(this.isRecording) {
+          if(this.isRecording && position.coords.accuracy <= maxAccuracy) {
             this.tracks[0].dots.push(positionToObject(position));
             save(this.tracks);
           }

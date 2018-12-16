@@ -29,8 +29,8 @@
           <tr><td scope="row">altitude</td><td>{{ point.coords.altitude }}</td></tr>
           <tr><td scope="row">latitude</td><td>{{ point.coords.latitude }}</td></tr>
           <tr><td scope="row">longitude</td><td>{{ point.coords.longitude }}</td></tr>
-          <tr><td scope="row">speed</td><td>{{ point.coords.speed }} m/s</td></tr>
-          <tr><td scope="row">speed</td><td>{{ point.coords.speed * 3.6 }} km/h</td></tr>
+          <tr><td scope="row">speed</td><td>{{ speedFormatter(point.coords.speed) }} m/s</td></tr>
+          <tr><td scope="row">speed</td><td>{{ speedFormatter(point.coords.speed * 3.6) }} km/h</td></tr>
           <tr><td scope="row">timestamp</td><td>{{ point.timestamp }}</td></tr>
           <tr><td scope="row">deltaTime</td><td>{{ deltaTime }}</td></tr>
           </tbody>
