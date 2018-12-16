@@ -2,7 +2,6 @@ const v = new Vue({
   el: '#app',
   data: {
     isRecording: false,
-    currentStartTime: undefined,
     trackIndexForDeleting: undefined,
     point: {
       coords: {},
@@ -14,17 +13,14 @@ const v = new Vue({
     toggleRecordStatus: function () {
       if(this.isRecording) {
         this.isRecording = false;
-        this.currentStartTime = undefined;
-        this.currentStartTime = new Date();
         const tracks = load();
         tracks[0].stopTime = new Date();
         save(tracks);
         this.tracks = tracks;
       } else {
         this.isRecording = true;
-        this.currentStartTime = new Date();
         const newTrack = {
-          startTime: this.currentStartTime,
+          startTime: new Date(),
           stopTime: undefined,
           dots: [],
         };
