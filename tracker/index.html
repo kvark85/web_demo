@@ -38,7 +38,7 @@
 
         <b-row class="button-row">
           <b-col cols="6">
-            <b-button v-on:click="toggleRecordStatus" variant="primary">{{ buttonText }}</b-button>
+            <b-button v-on:click="toggleRecordStatus" variant="primary">{{ getButtonText(isRecording) }}</b-button>
           </b-col>
           <b-col cols="6" class="text-right">
             <i class="material-icons play-icon" v-if="isRecording">play_circle_filled</i>

@@ -2,7 +2,6 @@ const v = new Vue({
   el: '#app',
   data: {
     isRecording: false,
-    buttonText: 'Start',
     currentStartTime: undefined,
     trackIndexForDeleting: undefined,
     point: {
@@ -15,7 +14,6 @@ const v = new Vue({
     toggleRecordStatus: function () {
       if(this.isRecording) {
         this.isRecording = false;
-        this.buttonText = 'Start';
         this.currentStartTime = undefined;
         this.currentStartTime = new Date();
         const tracks = load();
@@ -24,7 +22,6 @@ const v = new Vue({
         this.tracks = tracks;
       } else {
         this.isRecording = true;
-        this.buttonText = 'Stop';
         this.currentStartTime = new Date();
         const newTrack = {
           startTime: this.currentStartTime,
@@ -38,6 +35,7 @@ const v = new Vue({
       }
     },
     dateFormatter,
+    getButtonText: (isRecording) => isRecording ? 'Stop': 'Start',
     saveTrack,
     openDeleteDialog: function(index) {
       this.trackIndexForDeleting = index;
