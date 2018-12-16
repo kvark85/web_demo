@@ -55,10 +55,8 @@ const v = new Vue({
           const start = +new Date(); // speed test
           this.point = position;
           if(this.isRecording) {
-            const tracks = load();
-            tracks[0].dots.push(positionToObject(position));
-            save(tracks);
-            this.tracks = tracks;
+            this.tracks[0].dots.push(positionToObject(position));
+            save(this.tracks);
           }
           const end =  +new Date(); // speed test
           this.deltaTime = end - start; // speed test
