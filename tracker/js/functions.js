@@ -56,14 +56,7 @@ const endString = `
 const dateFormatter = (date) => {
   if (!date) return;
 
-  switch (typeof date) {
-    case 'string':
-    case 'number':
-      date = new Date(date);
-  }
-
-  return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}
-  (${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()})`;
+  return moment(date).format('HH:mm:ss (DD.MM.YY)');
 };
 
 const load = () => {
