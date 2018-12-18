@@ -52,7 +52,6 @@ const endString = `
 </Document>
 </kml>`;
 
-// TODO: fix this cases 14:2:21 (17.11.2018)
 const dateFormatter = (date) => {
   if (!date) return;
 
