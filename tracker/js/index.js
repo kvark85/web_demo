@@ -50,7 +50,8 @@ const v = new Vue({
     }
   },
   mounted: function() {
-    this.tracks = normalizer(load());
+    this.tracks = stopTimeNormalizer(load());
+    save(this.tracks);
 
     if(navigator.geolocation){
       navigator.geolocation.watchPosition(

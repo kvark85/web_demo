@@ -87,8 +87,8 @@ const findMinAltitude = (track) => {
   return minAltitude;
 };
 
-const normalizer = (tracks=[]) => {
-  const res = tracks.reduce((memo, track) => {
+const stopTimeNormalizer = (tracks=[]) => {
+  return  tracks.reduce((memo, track) => {
     const stopTime = track.stopTime || (track.dots[0] && track.dots[0].timestamp) || track.startTime;
 
     if (track.startTime === stopTime) {
@@ -97,8 +97,10 @@ const normalizer = (tracks=[]) => {
 
     return [ ...memo, { ...track, stopTime }];
   }, []);
+};
 
-  res.forEach((track) => {
+const altitudeNormalizer = (tracks=[]) => {
+  tracks.forEach((track) => {
     const minAltitude = findMinAltitude(track);
 
     for(let i = 0; i < track.dots.length; i++) {
@@ -131,13 +133,11 @@ const normalizer = (tracks=[]) => {
     }
   });
 
-  save(res);
-
-  return res;
+  return tracks;
 };
 
 saveTrack = (index) => {
-  const dotString = normalizer(load())[index].dots.reduce((memo, dot) => {
+  const dotString = altitudeNormalizer(load())[index].dots.reduce((memo, dot) => {
     const { altitude, latitude, longitude } = dot.coords;
     return memo + `${longitude},${latitude},${altitude || 0} `;
   }, '');
