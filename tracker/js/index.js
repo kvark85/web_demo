@@ -15,21 +15,18 @@ const v = new Vue({
     toggleRecordStatus: function () {
       if(this.isRecording) {
         this.isRecording = false;
-        const tracks = load();
-        tracks[0].stopTime = new Date();
-        save(tracks);
-        this.tracks = tracks;
+        this.tracks[0].stopTime = new Date();
+        save(this.tracks);
       } else {
         this.isRecording = true;
-        const newTrack = {
-          startTime: new Date(),
-          stopTime: undefined,
-          dots: [],
-        };
-        let tracks = load();
-        tracks = [newTrack, ...tracks];
-        save(tracks);
-        this.tracks = tracks;
+        this.tracks = [
+          {
+            startTime: new Date(),
+            stopTime: undefined,
+            dots: [],
+          },
+          ...this.tracks
+        ];
       }
     },
     dateFormatter,
