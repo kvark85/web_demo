@@ -1,0 +1,7 @@
+[
+  {"type": "cryptoTabBrowser"},
+  {"type": "cryptoTabFarm"},
+  {"type": "cryptoTabNft"},
+  {"type": "cryptoTabPoll"},
+  {"type": "ncWallet"}
+]
